@@ -1,0 +1,250 @@
+</script>
+<!DOCTYPE html>
+<html lang="en-US">
+<head><title>Money Manager(Jan)</title>
+
+<style type = "text/css" media = "all">
+p1{font-size : 1.5cm; 
+     text-indent : 1cm;
+     letter-spacing : 2mm;
+     color : blue;  
+    }
+
+p2{font-size : 0.75cm;
+     color : brown;
+     }
+
+label{ font-size : 0.75cm;
+         color : green;
+         font-style : italic;
+       }
+
+
+
+</style>
+</head>
+<body>
+<p1 style = "text-align : centre;">January</p1><br><br>
+<form  action="?action=save" name = "myform" method = "post">
+
+    
+    <button id="rememberer" onclick='myfunction1()'>remember text</button>
+    <button id="recaller" onclick='myfunction2()'>recall text </button>
+    <p id="jan">Loading for jan</p>
+
+<label>Enter your income</label>
+<input type = "text" name = "income" id = "user_income"/>
+<br>
+<label>Enter your loan installment per month</label>
+<input type = "text" name = "debt" id = "user_debt"/><br>
+<label>Enter your total taxes(property tax,electricity bill,insurances,etc</label>
+<input type = "text" name = "tax" id = "user_tax"/><br>
+<input type = "button" value = "Money in hand" onclick = "Money_in_hand()"/>
+<input type = "text" name = "salary" id = "user_salary"/><br>
+<table border  = 1>
+<tr><th>Day1</th><th>Day2</th><th>Day3</th><th>Day4</th><th>Day5</th><th>Day6</th><th>Day7</th></tr>
+<tr><td><input type = "text" id = "d1"/></td><td><input type = "text" id = "d2"/></td><td><input type = "text" id = "d3"/></td><td><input type = "text" id = "d4"/></td><td><input type = "text" id = "d5"/></td><td><input type = "text" id = "d6"/></td><td><input type = "text" id = "d7"/></td></tr>
+<tr><th>Day8</th><th>Day9</th><th>Day10</th><th>Day11</th><th>Day12</th><th>Day13</th><th>Day14</th></tr>
+<tr><td><input type = "text" id = "d8"/></td><td><input type = "text" id = "d9"/></td><td><input type = "text" id = "d10"/></td><td><input type = "text" id = "d11"/></td><td><input type = "text" id = "d12"/></td><td><input type = "text" id = "d13"/></td><td><input type = "text" id = "d14"/></td></tr>
+<tr><th>Day15</th><th>Day16</th><th>Day17</th><th>Day18</th><th>Day19</th><th>Day20</th><th>Day21</th></tr>
+<tr><td><input type = "text" id = "d15"/></td><td><input type = "text" id = "d16"/></td><td><input type = "text" id = "d17"/></td><td><input type = "text" id = "d18"/></td><td><input type = "text" id = "d19"/></td><td><input type = "text" id = "d20"/></td><td><input type = "text" id = "d21"/></td></tr>
+<tr><th>Day22</th><th>Day23</th><th>Day24</th><th>Day25</th><th>Day26</th><th>Day27</th><th>Day28</th></tr>
+<tr><td><input type = "text" id = "d22"/></td><td><input type = "text" id = "d23"/></td><td><input type = "text" id = "d24"/></td><td><input type = "text" id = "d25"/></td><td><input type = "text" id = "d26"/></td><td><input type = "text" id = "d27"/></td><td><input type = "text" id = "d28"/></td></tr>
+<tr><th>Day29</th><th>Day30</th><th>Day31</th></tr>
+<tr><td><input type = "text" id = "d29"/></td><td><input type = "text" id = "d30"/></td><td><input type = "text" id = "d31"/></td></tr>
+</table><br><br>
+<input type = "button"  value = "Monthly Expenditure" onclick = "monthly_expenditure()"/>
+<input type = "text" name = "sum" id = "sum1"/>
+<br><br>
+<p2>Here is a list of your day-to-day monthly spendings list. Fill it regularly. Elements not covered can be listed in miscellanous part. This will help you to keep track of your spendings. Monthly expenditure is same as your total savings. Above table can be used as a diary and below table can be used to keep a track of your spending priorities and can give you and idea to manage your savings.</p2>
+<br>
+<ul>
+<li>Food : <input type = "text" name = "food" id = "Food"/></li>
+<li>Transport : <input type = "text" name = "transport" id = "Transport"/></li>
+<li>Shopping : <input type = "text" name = "shopping" id = "Shopping"/></li>
+<li>Sport : <input type = "text" name = "sport" id = "Sport"/></li>
+<li>Social : <input type = "text" name = "social" id = "Social"/></li>
+<li>Telephone : <input type = "text" name = "telephone" id = "Telephone"/></li>
+<li>Home : <input type = "text" name = "home" id = "Home"/></li>
+<li>Pet : <input type = "text" name = "pet" id = "Pet"/></li>
+<li>Bills + Debts : <input type = "text" name = "bills" id = "Bills"/></li>
+<li>Electronics : <input type = "text" name = "electronics" id = "Electronics"/></li>
+<li>Travel : <input type = "text" name = "travel" id = "Travel"/></li>
+<li>Books : <input type = "text" name = "book" id = "Book"/></li>
+<li>Education : <input type = "text" name = "education" id = "Education"/></li>
+<li>Health : <input type = "text" name = "health" id = "Health"/></li>
+<li>Gift : <input type = "text" name = "gift" id = "Gift"/></li>
+<li>Office : <input type = "text" name = "office" id = "Office"/></li>
+<li>Insurance : <input type = "text" name = "insurance" id = "Insurance"/></li>
+<li>Gas : <input type = "text" name = "gas" id = "Gas"/></li>
+<li>Petrol : <input type = "text" name = "petrol" id = "Petrol"/></li>
+<li>Miscellaneous : <input type = "text" name = "miscellaneous" id = "Miscellaneous"/></li>
+</ul><br>
+<input type = "button" value = "Total Spendings" onclick = "list_total()"><input type = "text" 
+  name = "total_spending" id = "Total_spending"/>
+
+<input type = "button" value = "See my savings" onclick = "savings()"/>
+<input type = "text" name = "Money_saved" id = "money_saved"/>
+</form> 
+<div id="piechart" style = "position : absolute;left : 17cm;top : 22cm;"></div><br><br>
+<p2>Refresh the page if you want to see the pie chart of your spendings. Always refresh when you make an entry.  </p2>
+
+<hr>
+<hr>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type = "text/javascript">
+function myfunction1() { //remember code var
+
+    janincome = document.getElementById('user_income').innerHTML;
+          localStorage.setItem('mynumber3', janincome); 
+   jandebt = document.getElementById('user_debt').innerHTML;
+          localStorage.setItem('mynumber4', jandebt);  
+
+ }
+ function myfunction2() { //recall code
+         
+        document.getElementById('jan').innerHTML =
+                localStorage.getItem('jan');
+        document.getElementById('user_debt').innerHTML =
+                localStorage.getItem('mynumber4');
+
+}
+
+//Month = January
+
+function monthly_expenditure()
+{ var dd1 = Number(document.getElementById("d1").value);
+   var dd2 = Number(document.getElementById("d2").value);
+ var dd3 = Number(document.getElementById("d3").value);
+ var dd4 = Number(document.getElementById("d4").value);
+ var dd5 = Number(document.getElementById("d5").value);
+ var dd6 = Number(document.getElementById("d6").value);
+ var dd7 = Number(document.getElementById("d7").value);
+ var dd8 = Number(document.getElementById("d8").value);
+ var dd9 = Number(document.getElementById("d9").value);
+ var dd10 = Number(document.getElementById("d10").value);
+ var dd11 = Number(document.getElementById("d11").value);
+ var dd12 = Number(document.getElementById("d12").value);
+ var dd13 = Number(document.getElementById("d13").value);
+ var dd14 = Number(document.getElementById("d14").value);
+ var dd15 = Number(document.getElementById("d15").value);
+ var dd16 = Number(document.getElementById("d16").value);
+ var dd17 = Number(document.getElementById("d17").value);
+ var dd18 = Number(document.getElementById("d18").value);
+ var dd19 = Number(document.getElementById("d19").value);
+ var dd20 = Number(document.getElementById("d20").value);
+ var dd21 = Number(document.getElementById("d21").value);
+ var dd22 = Number(document.getElementById("d22").value);
+ var dd23 = Number(document.getElementById("d23").value);
+ var dd24 = Number(document.getElementById("d24").value);
+ var dd25 = Number(document.getElementById("d25").value);
+ var dd26 = Number(document.getElementById("d26").value);
+ var dd27 = Number(document.getElementById("d27").value);
+ var dd28 = Number(document.getElementById("d28").value);
+ var dd29 = Number(document.getElementById("d29").value);
+ var dd30 = Number(document.getElementById("d30").value);
+var dd31 = Number(document.getElementById("d31").value)
+var total = dd1 + dd2 + dd3 + dd4 + dd5 + dd6 + dd7 + dd8 + dd9 + dd10 + dd11 + dd12 + dd13 + dd14 + dd15 + dd16 + dd17 + dd18 + dd19 + dd20 + dd21 + dd22 + dd23 + dd24 + dd25 + dd26 + dd27 + dd28 + dd29 + dd30 + dd31;
+sum1.style.color = 'blue';
+document.myform.sum.value = total;
+var  user_income = Number(document.getElementById("user_income").value);
+if(total >= user_income * 30 / 100)
+{sum1.style.color = 'red';
+ alert("Your expenses are really increasing. Be cautious!!!");
+}
+return;
+}
+
+function Money_in_hand()
+{ var r = Number(document.getElementById("user_income").value);
+  var x = Number(document.getElementById("user_debt").value);
+  var y = Number(document.getElementById("user_tax").value);    
+  var money_made = r - x - y;
+  document.myform.salary.value = money_made;
+}
+
+function list_total()
+{ var l1 = Number(document.getElementById("Food").value);
+  var l2 = Number(document.getElementById("Transport").value);
+  var l3 = Number(document.getElementById("Shopping").value);
+  var l4 = Number(document.getElementById("Sport").value);
+  var l5 = Number(document.getElementById("Social").value);
+  var l6 = Number(document.getElementById("Telephone").value);
+  var l7 = Number(document.getElementById("Home").value);
+  var l8 = Number(document.getElementById("Pet").value);
+  var l9 = Number(document.getElementById("Bills").value);
+  var l10 = Number(document.getElementById("Electronics").value);
+  var l11 = Number(document.getElementById("Travel").value);
+  var l12 = Number(document.getElementById("Book").value);
+  var l13 = Number(document.getElementById("Education").value); 
+  var l14 = Number(document.getElementById("Health").value);
+  var l15 = Number(document.getElementById("Gift").value);
+  var l16 = Number(document.getElementById("Office").value);
+  var l17 = Number(document.getElementById("Insurance").value);
+  var l18 = Number(document.getElementById("Gas").value);
+  var l19 = Number(document.getElementById("Petrol").value);
+  var l20 = Number(document.getElementById("Miscellaneous").value);
+  var list_totaled = l1 + l2 + l3 + l4 + l5 + l6 + l7 + l8 + l9 + l10 + l11 + l12 + l13 + l14 + l15 + l16 + l17 + l18 + l19 + l20;
+var  userincome = Number(document.getElementById("user_income").value);
+  document.myform.total_spending.value = list_totaled;
+ Total_spending.style.color = 'green'; 
+if(list_totaled >= userincome * 30 / 100)
+{ Total_spending.style.color = 'red'; 
+alert("Your expenses are really increasing. Be cautious!!!");
+}
+return;
+}
+
+ 
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+var l1 = Number(document.getElementById("Food").value);
+  var l2 = Number(document.getElementById("Transport").value);
+  var l3 = Number(document.getElementById("Shopping").value);
+  var l4 = Number(document.getElementById("Sport").value);
+  var l5 = Number(document.getElementById("Social").value);
+  var l6 = Number(document.getElementById("Telephone").value); 
+ var l7 = Number(document.getElementById("Home").value);
+  var l8 = Number(document.getElementById("Pet").value);
+  var l9 = Number(document.getElementById("Bills").value);
+ var l10 = Number(document.getElementById("Electronics").value);
+  var l11 = Number(document.getElementById("Travel").value);
+  var l12 = Number(document.getElementById("Book").value);
+  var l13 = Number(document.getElementById("Education").value); 
+  var l14 = Number(document.getElementById("Health").value);
+  var l15 = Number(document.getElementById("Gift").value);
+  var l16 = Number(document.getElementById("Office").value);
+  var l17 = Number(document.getElementById("Insurance").value);
+  var l18 = Number(document.getElementById("Gas").value);
+  var l19 = Number(document.getElementById("Petrol").value);
+  var l20 = Number(document.getElementById("Miscellaneous").value);
+ var remaining = l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l5+l8;
+ var data = google.visualization.arrayToDataTable([
+  ['Money spent on', 'Money in Rs.'],
+  ['Food', l1],
+  ['Transport', l2],
+  ['Shopping', l3],
+  ['Sport', l4],
+  ['Telephone', l6],
+ ['Home',l7],
+  ['Bills',l9],
+ ['Electronics',l10],
+ ['Miscellaneous + other remaining',remaining]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+
+</script>
+</body>
+</html>
