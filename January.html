@@ -1,7 +1,7 @@
-</script>
+
 <!DOCTYPE html>
 <html lang="en-US">
-<head><title>Money Manager(Jan)</title>
+<head><title>Money Manager</title>
 
 <style type = "text/css" media = "all">
 p1{font-size : 1.5cm; 
@@ -24,7 +24,7 @@ label{ font-size : 0.75cm;
 </style>
 </head>
 <body>
-<p1 style = "text-align : centre;">January</p1><br><br>
+<p1 style = "text-align : centre;">My daily diary</p1><br><br>
 <form  action="?action=save" name = "myform" method = "post">
 
     
@@ -56,44 +56,20 @@ label{ font-size : 0.75cm;
 <input type = "button"  value = "Monthly Expenditure" onclick = "monthly_expenditure()"/>
 <input type = "text" name = "sum" id = "sum1"/>
 <br><br>
-<p2>Here is a list of your day-to-day monthly spendings list. Fill it regularly. Elements not covered can be listed in miscellanous part. This will help you to keep track of your spendings. Monthly expenditure is same as your total savings. Above table can be used as a diary and below table can be used to keep a track of your spending priorities and can give you and idea to manage your savings.</p2>
-<br>
-<ul>
-<li>Food : <input type = "text" name = "food" id = "Food"/></li>
-<li>Transport : <input type = "text" name = "transport" id = "Transport"/></li>
-<li>Shopping : <input type = "text" name = "shopping" id = "Shopping"/></li>
-<li>Sport : <input type = "text" name = "sport" id = "Sport"/></li>
-<li>Social : <input type = "text" name = "social" id = "Social"/></li>
-<li>Telephone : <input type = "text" name = "telephone" id = "Telephone"/></li>
-<li>Home : <input type = "text" name = "home" id = "Home"/></li>
-<li>Pet : <input type = "text" name = "pet" id = "Pet"/></li>
-<li>Bills + Debts : <input type = "text" name = "bills" id = "Bills"/></li>
-<li>Electronics : <input type = "text" name = "electronics" id = "Electronics"/></li>
-<li>Travel : <input type = "text" name = "travel" id = "Travel"/></li>
-<li>Books : <input type = "text" name = "book" id = "Book"/></li>
-<li>Education : <input type = "text" name = "education" id = "Education"/></li>
-<li>Health : <input type = "text" name = "health" id = "Health"/></li>
-<li>Gift : <input type = "text" name = "gift" id = "Gift"/></li>
-<li>Office : <input type = "text" name = "office" id = "Office"/></li>
-<li>Insurance : <input type = "text" name = "insurance" id = "Insurance"/></li>
-<li>Gas : <input type = "text" name = "gas" id = "Gas"/></li>
-<li>Petrol : <input type = "text" name = "petrol" id = "Petrol"/></li>
-<li>Miscellaneous : <input type = "text" name = "miscellaneous" id = "Miscellaneous"/></li>
-</ul><br>
-<input type = "button" value = "Total Spendings" onclick = "list_total()"><input type = "text" 
-  name = "total_spending" id = "Total_spending"/>
 
-<input type = "button" value = "See my savings" onclick = "savings()"/>
-<input type = "text" name = "Money_saved" id = "money_saved"/>
-</form> 
-<div id="piechart" style = "position : absolute;left : 17cm;top : 22cm;"></div><br><br>
-<p2>Refresh the page if you want to see the pie chart of your spendings. Always refresh when you make an entry.  </p2>
+<p>Click here to go to comodity list</p>
+<input type = "button" value = "comodity list" onclick = "redirect()"/>
 
 <hr>
 <hr>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type = "text/javascript">
+
+function redirect()
+{ window.onload = comodity.html;
+}
+
 function myfunction1() { //remember code var
 
     janincome = document.getElementById('user_income').innerHTML;
@@ -149,7 +125,11 @@ var total = dd1 + dd2 + dd3 + dd4 + dd5 + dd6 + dd7 + dd8 + dd9 + dd10 + dd11 + 
 sum1.style.color = 'blue';
 document.myform.sum.value = total;
 var  user_income = Number(document.getElementById("user_income").value);
-if(total >= user_income * 30 / 100)
+if(user_income == 0)
+{alert("Enter your income first!!!");
+  return; 
+ } 
+else(total >= user_income * 30 / 100)
 {sum1.style.color = 'red';
  alert("Your expenses are really increasing. Be cautious!!!");
 }
@@ -164,86 +144,6 @@ function Money_in_hand()
   document.myform.salary.value = money_made;
 }
 
-function list_total()
-{ var l1 = Number(document.getElementById("Food").value);
-  var l2 = Number(document.getElementById("Transport").value);
-  var l3 = Number(document.getElementById("Shopping").value);
-  var l4 = Number(document.getElementById("Sport").value);
-  var l5 = Number(document.getElementById("Social").value);
-  var l6 = Number(document.getElementById("Telephone").value);
-  var l7 = Number(document.getElementById("Home").value);
-  var l8 = Number(document.getElementById("Pet").value);
-  var l9 = Number(document.getElementById("Bills").value);
-  var l10 = Number(document.getElementById("Electronics").value);
-  var l11 = Number(document.getElementById("Travel").value);
-  var l12 = Number(document.getElementById("Book").value);
-  var l13 = Number(document.getElementById("Education").value); 
-  var l14 = Number(document.getElementById("Health").value);
-  var l15 = Number(document.getElementById("Gift").value);
-  var l16 = Number(document.getElementById("Office").value);
-  var l17 = Number(document.getElementById("Insurance").value);
-  var l18 = Number(document.getElementById("Gas").value);
-  var l19 = Number(document.getElementById("Petrol").value);
-  var l20 = Number(document.getElementById("Miscellaneous").value);
-  var list_totaled = l1 + l2 + l3 + l4 + l5 + l6 + l7 + l8 + l9 + l10 + l11 + l12 + l13 + l14 + l15 + l16 + l17 + l18 + l19 + l20;
-var  userincome = Number(document.getElementById("user_income").value);
-  document.myform.total_spending.value = list_totaled;
- Total_spending.style.color = 'green'; 
-if(list_totaled >= userincome * 30 / 100)
-{ Total_spending.style.color = 'red'; 
-alert("Your expenses are really increasing. Be cautious!!!");
-}
-return;
-}
-
- 
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-var l1 = Number(document.getElementById("Food").value);
-  var l2 = Number(document.getElementById("Transport").value);
-  var l3 = Number(document.getElementById("Shopping").value);
-  var l4 = Number(document.getElementById("Sport").value);
-  var l5 = Number(document.getElementById("Social").value);
-  var l6 = Number(document.getElementById("Telephone").value); 
- var l7 = Number(document.getElementById("Home").value);
-  var l8 = Number(document.getElementById("Pet").value);
-  var l9 = Number(document.getElementById("Bills").value);
- var l10 = Number(document.getElementById("Electronics").value);
-  var l11 = Number(document.getElementById("Travel").value);
-  var l12 = Number(document.getElementById("Book").value);
-  var l13 = Number(document.getElementById("Education").value); 
-  var l14 = Number(document.getElementById("Health").value);
-  var l15 = Number(document.getElementById("Gift").value);
-  var l16 = Number(document.getElementById("Office").value);
-  var l17 = Number(document.getElementById("Insurance").value);
-  var l18 = Number(document.getElementById("Gas").value);
-  var l19 = Number(document.getElementById("Petrol").value);
-  var l20 = Number(document.getElementById("Miscellaneous").value);
- var remaining = l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l5+l8;
- var data = google.visualization.arrayToDataTable([
-  ['Money spent on', 'Money in Rs.'],
-  ['Food', l1],
-  ['Transport', l2],
-  ['Shopping', l3],
-  ['Sport', l4],
-  ['Telephone', l6],
- ['Home',l7],
-  ['Bills',l9],
- ['Electronics',l10],
- ['Miscellaneous + other remaining',remaining]
-]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'My Average Day', 'width':550, 'height':400};
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
 
 </script>
 </body>

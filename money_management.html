@@ -1,30 +1,419 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>Money Management</title>
+<!-- Styles -->
 <style type = "text/css" media = "all">
 h1{ font-size : 1.5cm;
      color :  'blue';
      text-align : center;
 }
 
-</style>
-</head>
-<body>
-<h1> Welcome to money manager !!!</h1>
-<br>
-<br>
-<p style = "color : green;"> Click the below icon to go to your monthly money manager.Choose any month. You will reach a page where you can record your savings, income, etc for indivisual month. It can store record of all months from January to December. For getting knowledge how to store data for any month seek the help option.</p> 
-<br><br>
-<a href = "January.html" target "_blank"> Click here</a>
+body{
+  background-color : "CCFFCC";
+} 
 
-<script type = "text/javascript">
-
-function redirect()
-{ window.onload = "January.html";
+table.one{
+border-collapse : separate;
+width : 400px;
+border-spacing : 10px;
+border : 4px solid ;
+border-color : red;
+text-align : center;
+position : relative;
+left : 8cm;
+background-color : yellow;
 }
 
+#chartdiv {
+  width: 100%;
+  height: 1000px;
+}
 
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
+</style>
+
+</head>
+<body bgcolor = "FFFFCC">
+
+<h1 style = "color : orange;"> Welcome to money manager !!!</h1>
+<br>
+<br>
+<p style = "color : green; font-size : 0.75cm;"> Click the below icon to go to your monthly money manager.Choose any month. You will reach a page where you can record your savings, income, etc for indivisual month. It can store record of all months from January to December. For getting knowledge how to store data for any month seek the help option.</p> 
+<br><br> 
+<p style = "color : green; font-size : 0.75cm;">To reach your money management diary,</p>
+<a href = "January.html" target "_blank">Click here </a>
+
+<p style = "color : blue; font-size : 1cm;">Here is a form for you to fill on monthly basis to keep a record of your income, expenditure and saving 
+for an year.</p>
+
+<form name = "myform">
+<table class = "one">
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">Month</td>
+<td style = "color : blue;border : 2px dashed;border-color : green;">Income</td>
+<td style = "color : blue;border : 2px dashed;border-color : green;">Expenditure</td>
+<td style = "color : blue;border : 2px dashed;border-color : green;">Savings</td>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">January</td>
+<th><input type = "text" id = "jan_income"</th>
+<th><input type = "text"  id = "jan_exp"</th>
+<th><input type = "text" name = "jan" id = "jan_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">February</td>
+<th><input type = "text" id = "feb_income"</th>
+<th><input type = "text"  id = "feb_exp"</th>
+<th><input type = "text"  id = "feb_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">March</td>
+<th><input type = "text" id = "mar_income"</th>
+<th><input type = "text"  id = "mar_exp"</th>
+<th><input type = "text"  id = "mar_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">April</td>
+<th><input type = "text" id = "april_income"</th>
+<th><input type = "text"  id = "april_exp"</th>
+<th><input type = "text"  id = "april_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">May</td>
+<th><input type = "text" id = "may_income"</th>
+<th><input type = "text"  id = "may_exp"</th>
+<th><input type = "text"  id = "may_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">June</td>
+<th><input type = "text" id = "june_income"</th>
+<th><input type = "text"  id = "june_exp"</th>
+<th><input type = "text"  id = "june_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">July</td>
+<th><input type = "text" id = "july_income"</th>
+<th><input type = "text"  id = "july_exp"</th>
+<th><input type = "text"  id = "july_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">August</td>
+<th><input type = "text" id = "aug_income"</th>
+<th><input type = "text"  id = "aug_exp"</th>
+<th><input type = "text"  id = "aug_saving"</th>
+</tr>
+ 
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">September</td>
+<th><input type = "text" id = "sept_income"</th>
+<th><input type = "text"  id = "sept_exp"</th>
+<th><input type = "text"  id = "sept_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">October</td>
+<th><input type = "text" id = "oct_income"</th>
+<th><input type = "text"  id = "oct_exp"</th>
+<th><input type = "text"  id = "oct_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">November</td>
+<th><input type = "text" id = "nov_income"</th>
+<th><input type = "text " id = "nov_exp"</th>
+<th><input type = "text"  id = "nov_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">December</td>
+<th><input type = "text" id = "dec_income"</th>
+<th><input type = "text"  id = "dec_exp"</th>
+<th><input type = "text"  id = "dec_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">Total</td>
+<th><input type = "text" id = "total_income"</th>
+<th><input type = "text"  id = "total_exp"</th>
+<th><input type = "text"  id = "total_saving"</th>
+</tr>
+
+<tr>
+<td style = "color : blue;border : 2px dashed;border-color : green;">Mean</td>
+<th><input type = "text" id = "mean_income"</th>
+<th><input type = "text"  id = "mean_exp"</th>
+<th><input type = "text"  id = "mean_saving"</th>
+</tr>
+</table>
+
+<br>
+
+<input type = "button" value = "See my monthly savings" onclick = "calsav()"/>
+<input type = "button" value = "See annual finance" onclick = "annualsaving()"/>
+
+</form><br>
+<hr>
+<hr>
+
+<script type = "text/javascript"> 
+
+ function myfunction1() { //remember code var
+            texttosave = document.getElementById('textline').innerHTML;
+            localStorage.setItem('mynumber', texttosave);
+        }
+
+        function
+        myfunction2() { //recall code
+            document.getElementById('textline').innerHTML =
+                localStorage.getItem('mynumber');
+        }
+
+function calsav()
+{ //jan
+var jan_income1 = Number(document.getElementById("jan_income").value);
+var jan_exp1 = Number(document.getElementById("jan_exp").value);
+var jan_saving1= jan_income1 - jan_exp1;
+document.getElementById("jan_saving").value = jan_saving1;
+if( jan_exp1 >= jan_income1 * 70 / 100)
+{ jan_saving.style.color = 'red';
+  jan_exp.style.color = 'red';
+ }
+else
+{jan_saving.style.color = 'green';
+  jan_exp.style.color = 'green';
+}
+
+//feb
+var feb_income1 = Number(document.getElementById("feb_income").value);
+var feb_exp1 = Number(document.getElementById("feb_exp").value);
+var feb_saving1= feb_income1 - feb_exp1;
+document.getElementById("feb_saving").value = feb_saving1;
+if( feb_exp1 >= feb_income1 * 70 / 100)
+{ feb_saving.style.color = 'red';
+  feb_exp.style.color = 'red';
+ }
+else
+{feb_saving.style.color = 'green';
+  feb_exp.style.color = 'green';
+}
+
+//mar
+var mar_income1 = Number(document.getElementById("mar_income").value);
+var mar_exp1 = Number(document.getElementById("mar_exp").value);
+var mar_saving1= feb_income1 - feb_exp1;
+document.getElementById("mar_saving").value = mar_saving1;
+if( mar_exp1 >= mar_income1 * 70 / 100)
+{ mar_saving.style.color = 'red';
+  mar_exp.style.color = 'red';
+ }
+else
+{mar_saving.style.color = 'green';
+  mar_exp.style.color = 'green';
+}
+
+//april
+var april_income1 = Number(document.getElementById("april_income").value);
+var april_exp1 = Number(document.getElementById("april_exp").value);
+var april_saving1= april_income1 - april_exp1;
+document.getElementById("april_saving").value = april_saving1;
+if( april_exp1 >= april_income1 * 70 / 100)
+{ april_saving.style.color = 'red';
+  april_exp.style.color = 'red';
+ }
+else
+{april_saving.style.color = 'green';
+  april_exp.style.color = 'green';
+}
+
+//may
+var may_income1 = Number(document.getElementById("may_income").value);
+var may_exp1 = Number(document.getElementById("may_exp").value);
+var may_saving1= may_income1 - may_exp1;
+document.getElementById("may_saving").value = may_saving1;
+if( may_exp1 >= may_income1 * 70 / 100)
+{ may_saving.style.color = 'red';
+  may_exp.style.color = 'red';
+ }
+else
+{may_saving.style.color = 'green';
+  may_exp.style.color = 'green';
+}
+
+//june
+var june_income1 = Number(document.getElementById("june_income").value);
+var june_exp1 = Number(document.getElementById("june_exp").value);
+var june_saving1= june_income1 - june_exp1;
+document.getElementById("june_saving").value = june_saving1;
+if( june_exp1 >= june_income1 * 70 / 100)
+{ june_saving.style.color = 'red';
+  june_exp.style.color = 'red';
+ }
+else
+{june_saving.style.color = 'green';
+  june_exp.style.color = 'green';
+}
+
+//july
+var july_income1 = Number(document.getElementById("july_income").value);
+var july_exp1 = Number(document.getElementById("july_exp").value);
+var july_saving1= july_income1 - july_exp1;
+document.getElementById("july_saving").value = july_saving1;
+if( july_exp1 >= july_income1 * 70 / 100)
+{ july_saving.style.color = 'red';
+  july_exp.style.color = 'red';
+ }
+else
+{july_saving.style.color = 'green';
+  july_exp.style.color = 'green';
+}
+
+//aug
+var aug_income1 = Number(document.getElementById("aug_income").value);
+var aug_exp1 = Number(document.getElementById("aug_exp").value);
+var aug_saving1= aug_income1 - aug_exp1;
+document.getElementById("aug_saving").value = aug_saving1;
+if( aug_exp1 >= aug_income1 * 70 / 100)
+{ aug_saving.style.color = 'red';
+  aug_exp.style.color = 'red';
+ }
+else
+{aug_saving.style.color = 'green';
+  aug_exp.style.color = 'green';
+}
+
+//sept
+var sept_income1 = Number(document.getElementById("sept_income").value);
+var sept_exp1 = Number(document.getElementById("sept_exp").value);
+var sept_saving1= sept_income1 - sept_exp1;
+document.getElementById("sept_saving").value = sept_saving1;
+if( sept_exp1 >= sept_income1 * 70 / 100)
+{ sept_saving.style.color = 'red';
+  sept_exp.style.color = 'red';
+ }
+else
+{sept_saving.style.color = 'green';
+  sept_exp.style.color = 'green';
+}
+
+//oct
+var oct_income1 = Number(document.getElementById("oct_income").value);
+var oct_exp1 = Number(document.getElementById("oct_exp").value);
+var oct_saving1= oct_income1 - oct_exp1;
+document.getElementById("oct_saving").value = oct_saving1;
+if( oct_exp1 >= oct_income1 * 70 / 100)
+{ oct_saving.style.color = 'red';
+  oct_exp.style.color = 'red';
+ }
+else
+{oct_saving.style.color = 'green';
+ oct_exp.style.color = 'green';
+}
+
+//nov
+var nov_income1 = Number(document.getElementById("nov_income").value);
+var nov_exp1 = Number(document.getElementById("nov_exp").value);
+var nov_saving1= nov_income1 - nov_exp1;
+document.getElementById("nov_saving").value = nov_saving1;
+if( nov_exp1 >= nov_income1 * 70 / 100)
+{ nov_saving.style.color = 'red';
+  nov_exp.style.color = 'red';
+ }
+else
+{nov_saving.style.color = 'green';
+  nov_exp.style.color = 'green';
+}
+
+//dec
+var dec_income1 = Number(document.getElementById("dec_income").value);
+var dec_exp1 = Number(document.getElementById("dec_exp").value);
+var dec_saving1= dec_income1 - dec_exp1;
+document.getElementById("dec_saving").value = dec_saving1;
+if( dec_exp1 >= dec_income1 * 70 / 100)
+{ dec_saving.style.color = 'red';
+  dec_exp.style.color = 'red';
+ }
+else
+{dec_saving.style.color = 'green';
+  dec_exp.style.color = 'green';
+}
+
+return ;
+}
+
+function annualsaving()
+{ //income
+var a1 = Number(document.getElementById("jan_income").value);
+  var a2 = Number(document.getElementById("feb_income").value); 
+var a3 = Number(document.getElementById("mar_income").value);
+var a4 = Number(document.getElementById("april_income").value);
+var a5 = Number(document.getElementById("may_income").value);
+var a6 = Number(document.getElementById("june_income").value);
+var a7 = Number(document.getElementById("july_income").value);
+var a8 = Number(document.getElementById("aug_income").value);
+var a9 = Number(document.getElementById("sept_income").value);
+var a10 = Number(document.getElementById("oct_income").value);
+var a11 = Number(document.getElementById("nov_income").value);
+var a12 = Number(document.getElementById("dec_income").value);
+var a = a1+a2+a3+a4+a5+a6+a7+a8+a9+a10+a11+a12;
+document.getElementById("total_exp").value = a;
+a0 = a/12;
+document.getElementById("total_saving").value = a0;
+
+//expenditure
+var b1 = Number(document.getElementById("jan_exp").value);
+var b2 = Number(document.getElementById("feb_exp").value);
+var b3 = Number(document.getElementById("mar_exp").value);
+var b4 = Number(document.getElementById("april_exp").value);
+var b5 = Number(document.getElementById("may_exp").value);
+var b6 = Number(document.getElementById("june_exp").value);
+var b7 = Number(document.getElementById("july_exp").value);
+var b8 = Number(document.getElementById("aug_exp").value);
+var b9 = Number(document.getElementById("sept_exp").value);
+var b10 = Number(document.getElementById("oct_exp").value);
+var b11 = Number(document.getElementById("nov_exp").value);
+var b12 = Number(document.getElementById("dec_exp").value);
+var b = b1+b2+b3+b4+b5+b6+b7+b8+b9+b10+b11+b12;
+document.getElementById("total_exp").value = b;
+b0 = b/12;
+document.getElementById("mean_exp").value = b0;
+
+var c = a-b;
+document.getElementById("total_saving").value = c;
+var c0 = a0 - b0;
+document.getElementById("mean_saving").value = c0;
+
+if(b > a*70/100)
+{ total_exp.style.color = 'red';
+  total_saving.style.color = 'red';
+mean_exp.style.color = 'red';
+  mean_saving.style.color = 'red';
+}
+
+else
+{ total_exp.style.color = 'green';
+  total_saving.style.color = 'green';
+mean_exp.style.color = 'green';
+  mean_saving.style.color = 'green';
+}
+
+}
+ 
+//chart work
+
+    
 </script>
 
 </body>
