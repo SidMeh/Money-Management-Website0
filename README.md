@@ -6,3 +6,4 @@ Every page has an option to print.
 This is an HTML website. It is created using html, css, javascript, php and mysql.
 Javascript is used for calculations.
 Images are also uploaded as the are used for background and some links for banks.
+The January file stores daily diary, account file has bank links, comodity file contains comodity list and money_management manages monthly finance.
